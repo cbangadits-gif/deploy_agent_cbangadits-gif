@@ -13,3 +13,5 @@ bash setup_project.sh
 - Run the script: bash setup_project.sh
 - Press Ctrl+C during execution
 - The script will automatically archive the project folder and delete the incomplete directory
+## Author
+cbangadits-gif
