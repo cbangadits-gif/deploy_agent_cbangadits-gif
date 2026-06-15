@@ -11,8 +11,15 @@ cleanup() {
 
 trap cleanup SIGINT
 
+# Get project name
 echo "Enter the project name:"
 read input
+
+# Validate input is not empty
+while [ -z "$input" ]; do
+    echo "Error: Project name cannot be empty. Please try again:"
+    read input
+done
 
 # Create directory structure
 mkdir -p attendance_tracker_$input/Helpers
@@ -33,8 +40,18 @@ read answer
 if [ "$answer" == "yes" ]; then
     echo "Enter Warning threshold (default 75):"
     read warning
+    while ! [[ "$warning" =~ ^[0-9]+$ ]]; do
+        echo "Error: Please enter a valid number:"
+        read warning
+    done
+
     echo "Enter Failure threshold (default 50):"
     read failure
+    while ! [[ "$failure" =~ ^[0-9]+$ ]]; do
+        echo "Error: Please enter a valid number:"
+        read failure
+    done
+
     sed -i "s/\"warning\": 75/\"warning\": $warning/" attendance_tracker_$input/Helpers/config.json
     sed -i "s/\"failure\": 50/\"failure\": $failure/" attendance_tracker_$input/Helpers/config.json
     echo "Thresholds updated successfully!"
