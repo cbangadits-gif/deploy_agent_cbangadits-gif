@@ -28,7 +28,12 @@ mkdir -p attendance_tracker_$input/reports
 # Create the files
 touch attendance_tracker_$input/attendance_checker.py
 touch attendance_tracker_$input/Helpers/assets.csv
-touch attendance_tracker_$input/Helpers/config.json
+cat > attendance_tracker_$input/Helpers/config.json << 'EOF'
+{
+  "warning": 75,
+  "failure": 50
+}
+EOF
 touch attendance_tracker_$input/reports/reports.log
 
 echo "Project structure created successfully!"
