@@ -15,3 +15,6 @@ bash setup_project.sh
 - The script will automatically archive the project folder and delete the incomplete directory
 ## Author
 cbangadits-gif
+## Video Walkthrough
+Part 1: https://www.loom.com/share/cd7dfbd73d8c42a29e2d74856ea9dc2b
+Part 2: https://www.loom.com/share/e713a76d115246459bbac2b0b421820e
